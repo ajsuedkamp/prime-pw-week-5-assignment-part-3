@@ -19,17 +19,19 @@ function addToCollection(title, artist, yearPublished) {
         yearPublished: yearPublished,
     }
     collection.push(album);
+    return album;
 }
-addToCollection('Nevermind', 'Nirvana', '1991');
-addToCollection('Revolver', 'the Beatles', '1966');
-addToCollection('Abbey Road', 'the Beatles', '1969');
-addToCollection('Jagged Little Pill', 'Alanis Morissette', '1995');
-addToCollection('Evil Empire', 'Rage Against The Machine', '1996');
-addToCollection('Tragic Kingdom', 'No Doubt', '1995');
+console.log(addToCollection('Nevermind', 'Nirvana', '1991'));
+console.log(addToCollection('Revolver', 'the Beatles', '1966'));
+console.log(addToCollection('Abbey Road', 'the Beatles', '1969'));
+console.log(addToCollection('Jagged Little Pill', 'Alanis Morissette', '1995'));
+console.log(addToCollection('Evil Empire', 'Rage Against The Machine', '1996'));
+console.log(addToCollection('Tragic Kingdom', 'No Doubt', '1995'));
 console.table(collection);
 
 
 
+//Test record collection
 let testCollection = [
    { 
     title: 'Let Go',
@@ -59,6 +61,31 @@ function showCollection(array) {
     }
 }
 showCollection(collection);
+
+console.log('--- Extra record collection to test function ---')
 showCollection(testCollection);
 
+// Add a function named `findByArtist`.
 
+/**
+ * @param artist as a string
+ * loop through collection looking for matching artists  
+ * push matches to matchingArtist array
+ * @return matchingArtist array
+ */
+
+function findByArtist(artist) {
+    let matchingArtist = [];
+    let album = '';
+    for (let album of collection) {
+        if(album.artist === artist) {
+            matchingArtist.push(album);
+        }
+
+     }
+    return matchingArtist;
+}
+console.log(findByArtist('the Beatles'));
+console.table(findByArtist('the Beatles'));
+console.table(findByArtist('Alanis Morissette'));
+console.table('Green Day');
