@@ -68,24 +68,48 @@ showCollection(testCollection);
 // Add a function named `findByArtist`.
 
 /**
- * @param artist as a string
- * loop through collection looking for matching artists  
+ * @param {string} artist 
+ * @param collectionInput
+ * loop through collectionInput looking for matching artists  
  * push matches to matchingArtist array
  * @return matchingArtist array
  */
 
-function findByArtist(artist) {
+function findByArtist(artist, collectionInput) {
     let matchingArtist = [];
-    let album = '';
-    for (let album of collection) {
+    
+    for (let album of collectionInput) {
         if(album.artist === artist) {
             matchingArtist.push(album);
-        }
-
+        } 
+    
      }
     return matchingArtist;
 }
-console.log(findByArtist('the Beatles'));
-console.table(findByArtist('the Beatles'));
-console.table(findByArtist('Alanis Morissette'));
-console.table('Green Day');
+console.log(findByArtist('the Beatles', collection));
+console.table(findByArtist('the Beatles', collection));
+console.table(findByArtist('Alanis Morissette', collection));
+console.log(findByArtist('Green Day', collection));
+console.log(findByArtist('Avril Lavigne', testCollection));
+
+
+/**
+ * @param artist
+ * @param yearPublished
+ * @param collectionInput
+ * 
+ * @return array of items in collection matching all of search criteria
+ * @return empty array
+ */
+
+function search (artist, yearPublished, collectionInput) {
+    let searchResults = [];
+    for(let albums of collectionInput) {
+        if (albums.artist === artist && albums.yearPublished === yearPublished) {
+            searchResults.push(albums);
+        } else if (artist === '' ) {
+            return collectionInput
+        }
+    }
+    return searchResults
+}
