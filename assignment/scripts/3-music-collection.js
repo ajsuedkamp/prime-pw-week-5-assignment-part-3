@@ -107,9 +107,15 @@ function search (artist, yearPublished, collectionInput) {
     for(let albums of collectionInput) {
         if (albums.artist === artist && albums.yearPublished === yearPublished) {
             searchResults.push(albums);
-        } else if (artist === '' ) {
+        } else if (artist === '' || yearPublished === '') {
             return collectionInput
         }
     }
     return searchResults
 }
+console.log(search('Nirvana', '1991', collection));
+console.log(search('the Beatles', '1969', collection));
+console.log(search('Ray Charles', '1957', collection));
+console.log(search('Alanis Morissette', '', collection));
+console.log(search('System of a Down', '2001', testCollection ));
+console.log(search('', '1995', collection));
