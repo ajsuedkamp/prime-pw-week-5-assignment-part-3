@@ -33,16 +33,16 @@ console.table(collection);
 
 //Test record collection
 let testCollection = [
-   { 
-    title: 'Let Go',
-    artist: 'Avril Lavigne',
-    yearPublished: '2002',
-   },
-   {
-    title: 'Toxicity',
-    artist: 'System of a Down',
-    yearPublished: '2001',
-   }
+    {
+        title: 'Let Go',
+        artist: 'Avril Lavigne',
+        yearPublished: '2002',
+    },
+    {
+        title: 'Toxicity',
+        artist: 'System of a Down',
+        yearPublished: '2001',
+    }
 ]
 
 //Add a function named `showCollection`.
@@ -55,7 +55,7 @@ let testCollection = [
 let albums = '';
 function showCollection(array) {
     console.log('Number of albums in collection:', array.length);
-    for(let albums of array) {
+    for (let albums of array) {
         console.log(albums.title + ' by ' + albums.artist + ' published in ' + albums.yearPublished);
 
     }
@@ -77,13 +77,13 @@ showCollection(testCollection);
 
 function findByArtist(artist, collectionInput) {
     let matchingArtist = [];
-    
+
     for (let album of collectionInput) {
-        if(album.artist === artist) {
+        if (album.artist === artist) {
             matchingArtist.push(album);
-        } 
-    
-     }
+        }
+
+    }
     return matchingArtist;
 }
 console.log(findByArtist('the Beatles', collection));
@@ -102,9 +102,9 @@ console.log(findByArtist('Avril Lavigne', testCollection));
  * @return empty array
  */
 
-function search (artist, yearPublished, collectionInput) {
+function search(artist, yearPublished, collectionInput) {
     let searchResults = [];
-    for(let albums of collectionInput) {
+    for (let albums of collectionInput) {
         if (albums.artist === artist && albums.yearPublished === yearPublished) {
             searchResults.push(albums);
         } else if (artist === '' || yearPublished === '') {
@@ -117,5 +117,6 @@ console.log(search('Nirvana', '1991', collection));
 console.log(search('the Beatles', '1969', collection));
 console.log(search('Ray Charles', '1957', collection));
 console.log(search('Alanis Morissette', '', collection));
-console.log(search('System of a Down', '2001', testCollection ));
+console.log(search('System of a Down', '2001', testCollection));
 console.log(search('', '1995', collection));
+
